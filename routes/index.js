@@ -3,39 +3,19 @@ var router = express.Router();
 
 const projectsList = [
   {
-      title: 'ssr Developer', 
-      description: 'Development of new features in web and mobile apps for clients located in the U.S.A.',
-      activities: [
-          'NodeJS (express and fastify) and VueJS programming', 
-          'Implementation of Agile Scrum Methodology',
-          'Implementation of microservices',
-          'Unit, functional, integration and load testing',
-          'Github actions'
-      ]
+      title: 'Comphealth app', 
+      description: 'I worked as a Fullstack developer in the development of a healthcare app that allows hospitals and clinics to look for available doctors. It is also possible for doctors to find a job.',
+      image: '/Assets/images/chg.png'
   },
   {
-      title: 'Full Stack Engineer', 
-      description: 'Development of a web app with the purpose of selling products',
-      activities: [
-          'Implementation of Agile Scrum Methodology',
-          'Process Automation',
-          'Monitoring and maintenance of the company applications',
-          'Web app development using Python and React',
-          'Employment of Mysql database',
-          'Working with dockers'
-      ]
+      title: 'CCU app', 
+      description: 'I worked as a Full Stack Engineer in the development of a web app with the purpose of selling products',
+      image: '/Assets/images/ccu.png'
   },
   {
       title: 'Back End Developer', 
-      description: 'Development and maintenance of Snupper mobile application and web administrator for Chile and Mexico.',
-      activities: [
-          'Planning, design and development of mobile and web applications',
-          'Implementation of Agile Scrum Methodology',
-          'Process Automation',
-          'Monitoring and maintenance of the company applications',
-          'Technologies used: NodeJS, ExpressJs, Angular and MongoDB',
-          'Administration of production and testing servers'
-      ]
+      description: 'I worked as a Back End Developer in the development and maintenance of Snupper mobile application and web administrator for Chile and Mexico.',
+      image: '/Assets/images/snuuper.png'
   },
 ]
 const home = {
@@ -48,6 +28,26 @@ const about = {
   description: "Software Engineer with 6 years of professional experience in web and mobile applications development. Experienced as full stack developer. Advanced English and Spanish level."
 }
 
+const serviceList = [{
+  title: 'Web programming',
+  image: '/Assets/images/web-programming.png'
+},
+{
+  title: 'Mobile programming',
+  image: '/Assets/images/mobile-programming.jpg'
+},
+{
+  title: 'Fullstack programming',
+  image: '/Assets/images/fullstack.png'
+},
+{
+  title: 'Unit, functional, integration and pact Tests',
+  image: '/Assets/images/testing.png'
+}, 
+{
+  title: 'DevOps',
+  image: '/Assets/images/devops.png'
+}]
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('pages/home', {
@@ -66,8 +66,14 @@ router.get('/about', (req, res) => {
 router.get('/projects', (req, res) => {
   res.render('pages/projects', {
       projectsList,
-      about,
       title: "Projects"
+  })
+})
+
+router.get('/services', (req, res) => {
+  res.render('pages/services', {
+      serviceList,
+      title: "Services"
   })
 })
 

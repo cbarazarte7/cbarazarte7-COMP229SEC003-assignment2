@@ -3,20 +3,17 @@
 
 <div class="container">
     <ul class="list-unstyled">
-        <% projectsList.forEach((project)=> { %>
+        <% serviceList.forEach((service)=> { %>
             <li>
                     <div class="container">
                         <div class="row">
                             <div class="col-4">
-                                <image class="w-100" src=<%= project.image %>></image>
+                                <image class="w-100" src=<%= service.image %>></image>
                             </div>
-                            <div class="col">
+                            <div class="col d-flex flex-wrap align-items-center">
                                 <h3>
-                                    <%= project.title %>
+                                    <%= service.title %>
                                 </h3>
-                                <p>
-                                    <%= project.description %>
-                                </p>
                             </div>
                         </div>
                     </div>
