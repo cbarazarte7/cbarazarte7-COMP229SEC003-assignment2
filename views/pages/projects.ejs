@@ -1,0 +1,25 @@
+<%- include('../partials/head') %>
+<%- include('../partials/header') %>
+<ul>
+    <% projectsList.forEach((project)=> { %>
+        <li>
+            <h2>
+                <%= project.title %>
+            </h2>
+            <p>
+                <%= project.description %>
+            </p>
+            <ul>
+                <% project.activities.forEach((activity)=> { %>
+                    <li>
+                        <p>
+                            <%= activity %>
+                        </p>
+                    </li>
+                <% }) %>
+            </ul>
+        </li>
+        <hr />
+    <% }) %>
+</ul>
+<%- include('../partials/footer') %>
