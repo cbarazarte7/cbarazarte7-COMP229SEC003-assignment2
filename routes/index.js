@@ -15,7 +15,7 @@ const projectsList = [
   {
       title: 'Back End Developer', 
       description: 'I worked as a Back End Developer in the development and maintenance of Snupper mobile application and web administrator for Chile and Mexico.',
-      image: '/Assets/images/snuuper.png'
+      image: '/Assets/images/snuuper-achievement.jpg'
   },
 ]
 const home = {
@@ -48,6 +48,13 @@ const serviceList = [{
   title: 'DevOps',
   image: '/Assets/images/devops.png'
 }]
+
+const contactInfo = {
+  name: 'Carla Barazarte',
+  phone: '(416) 818-9430',
+  email: 'cbarazarte7@gmail.com'
+}
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('pages/home', {
@@ -74,6 +81,13 @@ router.get('/services', (req, res) => {
   res.render('pages/services', {
       serviceList,
       title: "Services"
+  })
+})
+
+router.get('/contact', (req, res) => {
+  res.render('pages/contact', {
+      contactInfo,
+      title: "Contact Me"
   })
 })
 
