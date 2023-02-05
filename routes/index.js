@@ -52,7 +52,7 @@ const serviceList = [{
 const contactInfo = {
   name: 'Carla Barazarte',
   phone: '(416) 818-9430',
-  email: 'cbarazarte7@gmail.com'
+  email: 'cbarazar@my.centennialcollege.ca'
 }
 
 /* GET home page. */
