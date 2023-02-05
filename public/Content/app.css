@@ -1,1 +1,13 @@
 /*Custom css goes here*/
+.black .active a,
+.black .active a:hover {
+    background-color: black;
+}
+
+.nav-pills > li > a.active {
+    background-color: black !important;
+}
+
+.container {
+    padding-top: 20px;
+  }

@@ -56,10 +56,17 @@ const contactInfo = {
 }
 
 /* GET home page. */
+router.get('/home', function(req, res, next) {
+  res.render('pages/home', {
+    home,
+    title: "Home",
+  });
+});
+
 router.get('/', function(req, res, next) {
   res.render('pages/home', {
     home,
-    title: "Resume",
+    title: "Home",
   });
 });
 
