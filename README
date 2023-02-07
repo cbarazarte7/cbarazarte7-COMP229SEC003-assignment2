@@ -1,0 +1,14 @@
+README
+Name: Carla Barazarte 
+StudentID: 301295205
+Date: 02/07/2023
+
+How to run the project: 
+
+> nodemon
+
+Open your browser and go to the url:
+http://localhost:3000/
+
+You can also see the project in the following url:
+https://carlabarazarte-portfolio.azurewebsites.net/

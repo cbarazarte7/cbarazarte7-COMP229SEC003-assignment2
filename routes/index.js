@@ -1,3 +1,10 @@
+/*
+    index.js
+    Name: Carla Barazarte 
+    StudentID: 301295205
+    Date: 02/07/2023
+*/
+
 var express = require('express');
 var router = express.Router();
 
@@ -62,7 +69,7 @@ router.get('/home', function(req, res, next) {
     title: "Home",
   });
 });
-
+/* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('pages/home', {
     home,
@@ -70,13 +77,15 @@ router.get('/', function(req, res, next) {
   });
 });
 
-
+/* GET about me page. */
 router.get('/about', (req, res) => {
   res.render('pages/about_me', {
       about,
       title: "About"
   })
 })
+
+/* GET projects page. */
 router.get('/projects', (req, res) => {
   res.render('pages/projects', {
       projectsList,
@@ -84,6 +93,7 @@ router.get('/projects', (req, res) => {
   })
 })
 
+/* GET services page. */
 router.get('/services', (req, res) => {
   res.render('pages/services', {
       serviceList,
@@ -91,6 +101,7 @@ router.get('/services', (req, res) => {
   })
 })
 
+/* GET contact page. */
 router.get('/contact', (req, res) => {
   res.render('pages/contact', {
       contactInfo,
