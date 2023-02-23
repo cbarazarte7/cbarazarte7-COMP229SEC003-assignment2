@@ -12,12 +12,12 @@ module.exports.displayBusinessContactList = (req, res, next) => {
         }
         else {
             console.log(businessContact);
-            res.render('businessContact/list', { title: 'Business Contacts', BusinessContact: businessContact,displayName:req.user?req.user.displayName:'' });
+            res.render('business_contact/list', { title: 'Business Contacts', BusinessContact: businessContact,displayName:req.user?req.user.displayName:'' });
         }
     });
 }
 module.exports.displayAddPage = (req, res, next) => {
-    res.render('businessContact/add',{title:'Add Business Contact',displayName:req.user?req.user.displayName:''})
+    res.render('business_contact/add',{title:'Add Business Contact',displayName:req.user?req.user.displayName:''})
 }
 
 module.exports.processAddPage = (req, res, next) => {
@@ -45,7 +45,7 @@ module.exports.displayEditPage = (req, res, next) => {
             res.end(err);
         }
         else {
-            res.render('businessContact/edit', { title: 'Edit Book', book: bookToEdit,displayName:req.user?req.user.displayName:'' });
+            res.render('business_contact/edit', { title: 'Edit Book', book: bookToEdit,displayName:req.user?req.user.displayName:'' });
         }
     });
 }
