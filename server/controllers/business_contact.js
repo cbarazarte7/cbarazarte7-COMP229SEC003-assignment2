@@ -14,14 +14,14 @@ module.exports.displayBusinessContactList = (req, res, next) => {
             console.log(businessContact);
             res.render('business_contact/list', { title: 'Business Contacts', BusinessContact: businessContact,displayName:req.user?req.user.displayName:'' });
         }
-    });
+    }).sort("name");
 }
 module.exports.displayAddPage = (req, res, next) => {
     res.render('business_contact/add',{title:'Add Business Contact',displayName:req.user?req.user.displayName:''})
 }
 
 module.exports.processAddPage = (req, res, next) => {
-    let newBusinessContact = Book({
+    let newBusinessContact = BusinessContact({
         "name": req.body.name,
         "number": req.body.number,
         "email": req.body.email,
@@ -32,14 +32,14 @@ module.exports.processAddPage = (req, res, next) => {
             res.end(err);
         }
         else {
-            res.redirect('/businessContactList');
+            res.redirect('/businessContact');
         }
     });
 }
 
 module.exports.displayEditPage = (req, res, next) => {
     let id = req.params.id;
-    Book.findById(id, (err, bookToEdit) => {
+    BusinessContact.findById(id, (err, bookToEdit) => {
         if (err) {
             console.log(err);
             res.end(err);
@@ -61,21 +61,21 @@ module.exports.processEditPage = (req, res, next) => {
         "price": req.body.price
     });
     console.log('req.body.price' , req.body)
-    Book.updateOne({ _id: id }, updatedBook, (err) => {
+    BusinessContact.updateOne({ _id: id }, updatedBook, (err) => {
         if (err) {
             console.log(err);
             res.end(err);
         }
         else {
             //console.log(businessContact);
-            res.redirect('/businessContact');
+            res.redirect('/business_contact');
         }
     });
 }
 
 module.exports.performDelete = (req, res, next) => {
     let id = req.params.id;
-    Book.remove({ _id: id }, (err) => {
+    BusinessContact.remove({ _id: id }, (err) => {
         if (err) {
             console.log(err);
             res.end(err);
