@@ -1,7 +1,7 @@
 let mongoose = require('mongoose');
 let businessContactModel = mongoose.Schema({
     name: String,
-    number: int,
+    number: Number,
     email: String
 },
     {

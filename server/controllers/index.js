@@ -60,7 +60,7 @@ module.exports.processLoginPage = (req, res, next) => {
             if (err) {
                 return next(err);
             }
-            return res.redirect('/bookList');
+            return res.redirect('/businessContact');
         });
     })(req, res, next);
 }
@@ -109,7 +109,7 @@ module.exports.processRegisterPage = (req, res, next) => {
             //if no error exists, then registration is successful
             //redirect the user and authenticate them
             return passport.authenticate('local')(req, res, () => {
-                res.redirect('/bookList')
+                res.redirect('/businessContact')
             });
         }
             
