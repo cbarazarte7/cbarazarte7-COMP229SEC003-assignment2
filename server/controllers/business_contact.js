@@ -39,36 +39,32 @@ module.exports.processAddPage = (req, res, next) => {
 
 module.exports.displayEditPage = (req, res, next) => {
     let id = req.params.id;
-    BusinessContact.findById(id, (err, bookToEdit) => {
+    BusinessContact.findById(id, (err, businessContactToEdit) => {
         if (err) {
             console.log(err);
             res.end(err);
         }
         else {
-            res.render('business_contact/edit', { title: 'Edit Book', book: bookToEdit,displayName:req.user?req.user.displayName:'' });
+            res.render('business_contact/edit', { title: 'Edit Book', businessContact: businessContactToEdit,displayName:req.user?req.user.displayName:'' });
         }
     });
 }
 
 module.exports.processEditPage = (req, res, next) => {
     let id = req.params.id
-    let updatedBook = Book({
+    let updatedBusinessContact = BusinessContact({
         "_id": id,
         "name": req.body.name,
-        "author": req.body.author,
-        "published": req.body.published,
-        "description": req.body.description,
-        "price": req.body.price
+        "number": req.body.number,
+        "email": req.body.email
     });
-    console.log('req.body.price' , req.body)
-    BusinessContact.updateOne({ _id: id }, updatedBook, (err) => {
+    BusinessContact.updateOne({ _id: id }, updatedBusinessContact, (err) => {
         if (err) {
             console.log(err);
             res.end(err);
         }
         else {
-            //console.log(businessContact);
-            res.redirect('/business_contact');
+            res.redirect('/businessContact');
         }
     });
 }
