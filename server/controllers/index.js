@@ -11,25 +11,32 @@ let passport = require('passport');
 let UserModel = require('../models/user');
 let User = UserModel.User;
 
+// Display Home page
 module.exports.displayHomePage = (req, res, next) => {
     res.render('index', { title: 'Home',displayName:req.user?req.user.displayName:'' });
 }
+
+// Display about page
 module.exports.displayAboutPage = (req, res, next) => {
     res.render('index', { title: 'About' ,displayName:req.user?req.user.displayName:''});
 }
 
+// Display products page
 module.exports.displayProductsPage = (req, res, next) => {
     res.render('index', { title: 'Products', displayName:req.user?req.user.displayName:'' });
 }
 
+// Display services page
 module.exports.displayServicesPage = (req, res, next) => {
     res.render('index', { title: 'Services',displayName:req.user?req.user.displayName:'' });
 }
 
+// Display contact page
 module.exports.displayContactPage = (req, res, next) => {
     res.render('index', { title: 'Contact',displayName:req.user?req.user.displayName:'' });
 }
 
+// Dislpay login page
 module.exports.displayLoginPage = (req, res, next) => {
     //check if the user is already logged in*/
     if (!req.user)
@@ -47,6 +54,7 @@ module.exports.displayLoginPage = (req, res, next) => {
         }
 }
 
+// Authenticate user and shows error if user/password is incorrect
 module.exports.processLoginPage = (req, res, next) => {
     passport.authenticate('local', (err, User, info) => {
         //server err?
@@ -69,6 +77,7 @@ module.exports.processLoginPage = (req, res, next) => {
     })(req, res, next);
 }
 
+// Display the register form
 module.exports.displayRegisterPage = (req, res, next) => {
     //check if the user is not already logged in*/
     if (!req.user)
@@ -85,14 +94,16 @@ module.exports.displayRegisterPage = (req, res, next) => {
         return res.redirect('/');
         }
 }
+
+// Register a new user with username, displayName, email and password
 module.exports.processRegisterPage = (req, res, next) => {
     //instantiate a user object*/
     let newUser = new User({
         username: req.body.username,
-        //password:req.body.password,
         email: req.body.email,
         displayName: req.body.displayName
     });
+
     User.register(newUser, req.body.password, (err) => {
         if (err) {
             console.log("Error:inserting New User");
@@ -119,6 +130,8 @@ module.exports.processRegisterPage = (req, res, next) => {
             
     });
 }
+
+// Logout from the system
 module.exports.performLogout = (req, res, next) => {
     req.logout(function (err) {
         if (err) {

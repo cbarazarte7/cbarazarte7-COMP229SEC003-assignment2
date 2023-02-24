@@ -18,7 +18,7 @@ function requireAuth(req, res, next)
     }
     next();
 }
-//connect to our books model
+//connect to business contact model
 let BusinessContact = require('../models/business_contact');
 let businessContactController = require('../controllers/business_contact');
 //GET ROUTE for the book list page -READ OPERATION

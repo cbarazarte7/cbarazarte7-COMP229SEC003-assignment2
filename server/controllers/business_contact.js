@@ -8,7 +8,7 @@
 //create a reference to the db Schema which is the model
 let BusinessContact = require('../models/business_contact');
 
-//we want to display the BusinessContactList
+//Display the BusinessContactList
 module.exports.displayBusinessContactList = (req, res, next) => {
     BusinessContact.find((err, businessContact) => {
         if (err) {
@@ -20,10 +20,13 @@ module.exports.displayBusinessContactList = (req, res, next) => {
         }
     }).sort("name");
 }
+
+//Display the add page
 module.exports.displayAddPage = (req, res, next) => {
     res.render('business_contact/add',{title:'Add Business Contact',displayName:req.user?req.user.displayName:''})
 }
 
+//save data in database and redirects to main page
 module.exports.processAddPage = (req, res, next) => {
     let newBusinessContact = BusinessContact({
         "name": req.body.name,
@@ -41,6 +44,7 @@ module.exports.processAddPage = (req, res, next) => {
     });
 }
 
+//Display edit page
 module.exports.displayEditPage = (req, res, next) => {
     let id = req.params.id;
     BusinessContact.findById(id, (err, businessContactToEdit) => {
@@ -54,6 +58,7 @@ module.exports.displayEditPage = (req, res, next) => {
     });
 }
 
+//edit data in database and redirects to main page
 module.exports.processEditPage = (req, res, next) => {
     let id = req.params.id
     let updatedBusinessContact = BusinessContact({
@@ -73,6 +78,7 @@ module.exports.processEditPage = (req, res, next) => {
     });
 }
 
+//delete data in database and redirects to main page
 module.exports.performDelete = (req, res, next) => {
     let id = req.params.id;
     BusinessContact.remove({ _id: id }, (err) => {
