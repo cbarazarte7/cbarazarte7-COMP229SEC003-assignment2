@@ -1,3 +1,10 @@
+/* 
+    business_contact.js
+    Name: Carla Barazarte 
+    StudentID: 301295205
+    Date: 02/23/2023 
+*/
+
 let mongoose = require('mongoose');
 let businessContactModel = mongoose.Schema({
     name: String,

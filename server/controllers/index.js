@@ -1,6 +1,10 @@
-let express = require('express');
-let router = express.Router();
-let mongoose = require('mongoose');
+/* 
+    index.js
+    Name: Carla Barazarte 
+    StudentID: 301295205
+    Date: 02/23/2023 
+*/
+
 let passport = require('passport');
 /*create the userModel instance*/
 

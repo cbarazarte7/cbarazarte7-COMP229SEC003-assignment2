@@ -1,7 +1,13 @@
+/* 
+    business_contact.js
+    Name: Carla Barazarte 
+    StudentID: 301295205
+    Date: 02/23/2023 
+*/
+
 let express = require('express');
 let router = express.Router();
-let mongoose = require('mongoose');
-let passport = require('passport');
+
 //helper function for guard purposes
 function requireAuth(req, res, next)
 {

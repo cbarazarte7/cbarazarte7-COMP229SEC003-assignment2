@@ -1,3 +1,10 @@
+/* 
+    business_contact.js
+    Name: Carla Barazarte 
+    StudentID: 301295205
+    Date: 02/23/2023 
+*/
+
 //create a reference to the db Schema which is the model
 let BusinessContact = require('../models/business_contact');
 
